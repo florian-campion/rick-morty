@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import Accueil from './pages/Accueil';
+import ContentList from './components/ContentList';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={ <Accueil/> } />
+        <Route path="/:num" element={ <Accueil/> } />
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
       <footer>

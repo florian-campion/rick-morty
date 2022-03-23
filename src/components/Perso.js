@@ -3,8 +3,10 @@ const Perso = (props) => {
     return (
         <article>
             <img src={perso.image} />
-            <h2>{perso.name}</h2>
-            <p>{perso.gender}</p>
+            <div>
+                <h2>{perso.name}</h2>
+                <small>{perso.gender}</small>
+            </div>
         </article>
     )
 }
