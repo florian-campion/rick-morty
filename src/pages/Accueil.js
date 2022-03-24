@@ -3,7 +3,6 @@ import { Link, Outlet, useParams } from "react-router-dom";
 import Grid from "../components/Grid";
 import Perso from "../components/Perso";
 
-
 const Accueil = () => {
 
     let [datas, setDatas] = useState([]);

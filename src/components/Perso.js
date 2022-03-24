@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Perso = (props) => {
-    let perso = props.datas
+    let {image, name, gender, id} = props.datas
     return (
         <article>
-            <img src={perso.image} />
+            <img src={image} />
             <div>
-                <h2>{perso.name}</h2>
-                <small>{perso.gender}</small>
+                <h2>{name}</h2>
+                <small>{gender}</small>
+                <Link to={"/perso/"+id}>Voir +</Link>
             </div>
         </article>
     )
