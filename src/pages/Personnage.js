@@ -8,18 +8,20 @@ const PersoContent = (props) => {
             <img src={image}/>
             <h1>{name}</h1>
             <table>
-                <tr>
-                    <td>Genre : </td>
-                    <td>{gender}</td>
-                </tr>
-                <tr>
-                    <td>Dernière position : </td>
-                    <td>{location.name}</td>
-                </tr>
-                <tr>
-                    <td>Situation : </td>
-                    <td>{status}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Genre : </td>
+                        <td>{gender}</td>
+                    </tr>
+                    <tr>
+                        <td>Dernière position : </td>
+                        <td>{location.name}</td>
+                    </tr>
+                    <tr>
+                        <td>Situation : </td>
+                        <td>{status}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )
