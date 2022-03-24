@@ -13,7 +13,6 @@ const Accueil = () => {
 
     useEffect(
         () => {
-            console.log(paginate);
             fetch('https://rickandmortyapi.com/api/character?page='+paginate)
                 .then(response => response.json())
                 .then(APIresult => {
