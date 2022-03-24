@@ -1,15 +1,25 @@
-import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import Accueil from './pages/Accueil';
 import ContentList from './components/ContentList';
 import Personnage from './pages/Personnage';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Accueil</Link>
-      </nav>
+      <Navbar expand="lg">
+        <Container>
+          <Navbar.Brand>Rick & Morty</Navbar.Brand>
+          <Navbar.Toggle aria-controls="main-nav"/>
+          <Navbar.Collapse id="main-nav"  className="justify-content-end">
+            <Nav>
+              <Nav.Link>
+                <Link to="/">Accueil</Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Routes>
         <Route path="/" element={ <Accueil/> } />
         <Route path="/:num" element={ <Accueil/> } />

@@ -24,14 +24,12 @@ const Accueil = () => {
     return (
         <Fragment>
             <h1>Accueil</h1>
-            <Grid>
                 {
                     !datas.length ?
                         <p>Loading...</p>
                     :
-                        datas.map(item => <Perso key={item.id} datas={item} />)
+                        <Grid datas={datas}/>
                 }
-            </Grid>
             <nav>
                 {
                     (paginate > 1) &&

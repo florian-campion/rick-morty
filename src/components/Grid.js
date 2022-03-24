@@ -1,19 +1,31 @@
 import { useState } from "react";
-import './Grid.css';
+import { Col, Container, Row } from "react-bootstrap";
+import Perso from "./Perso";
 
 const Grid = (props) => {
     let [gridState, setGridState] = useState('card');
 
     return (
-        <div className="grid">
-            <ul>
-                <li onClick={() => setGridState('card')}>Card</li>
-                <li onClick={() => setGridState('list')}>List</li>
-            </ul>
-            <div className={gridState}>
-                {props.children}
+        <Container>
+            <div className="grid">
+                <ul>
+                    <li onClick={() => setGridState('card')}>Card</li>
+                    <li onClick={() => setGridState('list')}>List</li>
+                </ul>
+                <Row>
+                {
+                    props.datas.map(item => (
+                        <Col 
+                            sm={(gridState == 'card') ? 6 : 12 }
+                            md={(gridState == 'card') ? 3 : 12 }
+                        >
+                            <Perso key={item.id} datas={item} />
+                        </Col>
+                    ))
+                }
+                </Row>
             </div>
-        </div>
+        </Container>
     )
 }
 

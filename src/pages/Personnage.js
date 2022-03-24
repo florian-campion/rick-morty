@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { Triangle } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 
 const PersoContent = (props) => {
+    if (!props.status) 
+        return (<h1>404</h1>)
     let {name, image, gender, status, location} = props.perso;
     return (
         <div>
@@ -31,13 +34,18 @@ const Personnage = () => {
 
     let { id } = useParams();
     let [perso, setPerso] = useState(false);
+    let [requestStatus, updateRequestStatus] = useState(false);
     useEffect (
-        () => {
+        () => { // Promise
             fetch('https://rickandmortyapi.com/api/character/'+id)
-                .then(response => response.json())
+                .then(response => {
+                    updateRequestStatus(response.ok);
+                    return response.json();
+                } )
                 .then(perso => {
                     setPerso(perso);
                 })
+                .catch(err => console.warn('erreure de requete'))
         }, []
     )
 
@@ -45,10 +53,11 @@ const Personnage = () => {
         <div>
             {
                 perso ?
-                    <PersoContent perso={perso}/>
+                    <PersoContent status={requestStatus} perso={perso}/>
                 : 
-                    <div>loading...</div>
+                    <Triangle color="blue" />
             }
+            
         </div>
     )
 }
